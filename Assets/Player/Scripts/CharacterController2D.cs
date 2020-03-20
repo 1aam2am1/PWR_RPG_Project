@@ -43,6 +43,12 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
+
+        if (m_GroundCheckCollider == null)
+            m_GroundCheckCollider = new Collider2D();
+
+        if (m_CrouchDisableCollider == null)
+            m_CrouchDisableCollider = new Collider2D();
     }
 
     private void Start()

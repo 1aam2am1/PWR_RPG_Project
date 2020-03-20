@@ -5,79 +5,95 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-	private CharacterController2D controller;
-	private Animator animator;
-	private SpriteRenderer spriteRenderer;
+    private CharacterController2D controller;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private HealthSystem healthSystem;
 
-	public float runSpeed = 40f;
+    public float runSpeed = 40f;
 
-	float horizontalMove = 0f;
-	bool jump = false;
-	bool crouch = false;
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool crouch = false;
 
-	private void Awake()
-	{
-		animator = GetComponent<Animator>();
-		controller = GetComponent<CharacterController2D>();
-		spriteRenderer = GetComponent<SpriteRenderer>();
-	}
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        controller = GetComponent<CharacterController2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        healthSystem = GetComponent<HealthSystem>();
 
-	// Update is called once per frame
-	void Update()
-	{
-		Vector2 move = Vector2.zero;
+        healthSystem.OnDeathEvent.AddListener(OnDeath);
+    }
 
-		move.x = Input.GetAxis("Horizontal");
+    private void OnDestroy()
+    {
+        healthSystem.OnDeathEvent.RemoveListener(OnDeath);
+    }
 
-		horizontalMove = move.x * runSpeed;
+    // Update is called once per frame
+    void Update()
+    {
+        if (healthSystem.Health == 0) { return; }
 
-		animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
+        Vector2 move = Vector2.zero;
 
-		if (move.x > 0.01f)
-		{
-			if (spriteRenderer.flipX == true)
-			{
-				spriteRenderer.flipX = false;
-			}
-		}
-		else if (move.x < -0.01f)
-		{
-			if (spriteRenderer.flipX == false)
-			{
-				spriteRenderer.flipX = true;
-			}
-		}
+        move.x = Input.GetAxis("Horizontal");
 
-		if (Input.GetButtonDown("Jump"))
-		{
-			jump = true;
-			animator.SetBool("IsJumping", true);
-		}
+        horizontalMove = move.x * runSpeed;
 
-		if (Input.GetButtonDown("Crouch"))
-		{
-			crouch = true;
-		}
-		else if (Input.GetButtonUp("Crouch"))
-		{
-			crouch = false;
-		}
-	}
+        animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
 
-	public void OnLanding()
-	{
-		animator.SetBool("IsJumping", false);
-	}
+        if (move.x > 0.01f)
+        {
+            if (spriteRenderer.flipX == true)
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
+        else if (move.x < -0.01f)
+        {
+            if (spriteRenderer.flipX == false)
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
 
-	public void OnCrouching(bool isCrouching)
-	{
-		animator.SetBool("IsCrouching", isCrouching);
-	}
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+            animator.SetBool("IsJumping", true);
+        }
 
-	void FixedUpdate()
-	{
-		// Move our character
-		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-		jump = false;
-	}
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = true;
+        }
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            crouch = false;
+        }
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
+    }
+
+    public void OnCrouching(bool isCrouching)
+    {
+        animator.SetBool("IsCrouching", isCrouching);
+    }
+
+    public void OnDeath()
+    {
+        animator.Play("Player_Die");
+    }
+
+    void FixedUpdate()
+    {
+        // Move our character
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
+    }
 }
