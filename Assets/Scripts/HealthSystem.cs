@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MinMaxValue
 {
-    [SerializeField] private float m_MaxHealth = 100f;
-    [SerializeField] public float Health { get; private set; } = 100f;
+    private float m_MaxHealth { get => m_MaxValue; set => base.m_MaxValue = value; }
+    public float Health { get => base.Value; protected set => base.Value = value; }
     [SerializeField] private float m_HealthRecovery = .1f;
 
 
