@@ -5,27 +5,18 @@ using UnityEngine;
 public enum EquipmentType
 {
     Helmet,
-    Weapon1,
-    Weapon2,
+    Weapon,
+    Shield,
     Chest,
-    Boots,
-    Accessory1,
-    Accessory2,
-    Accessory3
+    Boots
 }
 
 [CreateAssetMenu]
 public class EquipableItem : Item
 {
-    public int stat1Bonus;
-    public int stat2Bonus;
-    public int stat3Bonus;
-    public int stat4Bonus;
-    [Space]
-    public float stat1PercentBonus;
-    public float stat2PercentBonus;
-    public float stat3PercentBonus;
-    public float stat4PercentBonus;
+    public int attackBonus;
+    public int hpBonus;
+    public int defence3Bonus;
     [Space]
     public EquipmentType equipmentType;
 

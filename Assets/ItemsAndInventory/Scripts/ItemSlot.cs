@@ -5,11 +5,21 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     [SerializeField] Image image;
 
-    public event Action<Item> OnRightClickEvent;
+    public event Action<ItemSlot> OnPointerEnterEvent;
+    public event Action<ItemSlot> OnPointerExitEvent;
+    public event Action<ItemSlot> OnRightClickEvent;
+    public event Action<ItemSlot> OnBeginDragHandlerEvent;
+    public event Action<ItemSlot> OnEndDragHandlerEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
+
+    private Color normalColor = Color.white;
+    private Color disabledColor = new Color(0, 0, 0, 0);
+
 
     private Item _item;
     public Item item 
@@ -20,12 +30,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             _item = value;
             if (item == null)
             {
-                image.enabled = false;
+                image.color = disabledColor;
             }
             else
             {
                 image.sprite = _item.itemIcon;
-                image.enabled = true;
+                image.color = normalColor;
             }
         }
     }
@@ -34,9 +44,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData != null && eventData.button == PointerEventData.InputButton.Right)
         {
-            if (item != null && OnRightClickEvent != null)
+            if (OnRightClickEvent != null)
             {
-                OnRightClickEvent(item);
+                OnRightClickEvent(this);
             }
         }
     }
@@ -46,5 +56,37 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         if (image == null)
             image = GetComponent<Image>();
 
+    }
+
+    public virtual bool CanReceiveItem(Item item)
+    {
+        return true;
+    }
+
+    Vector2 originalPosition;
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (OnBeginDragHandlerEvent != null)
+            OnBeginDragHandlerEvent(this);
+        //originalPosition = image.transform.position;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (OnEndDragHandlerEvent != null)
+            OnEndDragHandlerEvent(this);
+        //image.transform.position = originalPosition;
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (OnDragEvent != null)
+            OnDragEvent(this);
+        //image.transform.position = Input.mousePosition;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (OnDropEvent!= null)
+            OnDropEvent(this);
     }
 }

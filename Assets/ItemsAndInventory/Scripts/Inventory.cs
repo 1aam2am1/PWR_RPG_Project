@@ -1,23 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using System;
 
 public class Inventory : MonoBehaviour
 {
-
-    [SerializeField] List<Item> items;
+    [SerializeField] List<Item> startingItems;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
 
-    public event Action<Item> OnItemRightClickEvent;
+    public event Action<ItemSlot> OnRightClickEvent;
+    public event Action<ItemSlot> OnBeginDragHandlerEvent;
+    public event Action<ItemSlot> OnEndDragHandlerEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
 
     private void Awake()
     {
         for(int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].OnRightClickEvent += OnItemRightClickEvent;
+ 
+            itemSlots[i].OnRightClickEvent += OnRightClickEvent;
+            itemSlots[i].OnBeginDragHandlerEvent += OnBeginDragHandlerEvent;
+            itemSlots[i].OnEndDragHandlerEvent += OnEndDragHandlerEvent;
+            itemSlots[i].OnDragEvent += OnDragEvent;
+            itemSlots[i].OnDropEvent += OnDropEvent;
         }
+        SetStartingItems();
     }
 
     private void OnValidate()
@@ -25,14 +35,14 @@ public class Inventory : MonoBehaviour
         if (itemsParent != null)
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
 
-        RefreshUI();
+        SetStartingItems();
     }
 
-    private void RefreshUI()
+    private void SetStartingItems()
     {
         int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
-            itemSlots[i].item = items[i];
+        for (; i < startingItems.Count && i < itemSlots.Length; i++)
+            itemSlots[i].item = startingItems[i];
 
         for (; i < itemSlots.Length; i++)
             itemSlots[i].item = null;
@@ -40,25 +50,39 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item item)
     {
-        if (IsFull()) 
-            return false;
-        items.Add(item);
-        RefreshUI();
-        return true;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == null)
+            {
+                itemSlots[i].item = item;
+                return true;
+            }
+        }
+        return false;
     }
 
     public bool RemoveItem(Item item)
     {
-        if(items.Remove(item))
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            RefreshUI();
-            return true;
+            if (itemSlots[i].item == item)
+            {
+                itemSlots[i].item = null;
+                return true;
+            }
         }
         return false;
     }
     public bool IsFull()
     {
-        return items.Count >= itemSlots.Length;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

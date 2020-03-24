@@ -1,40 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
+    [SerializeField] Image draggableItem;
+
+    private ItemSlot draggedSlot;
 
     private void Awake()
     {
-        inventory.OnItemRightClickEvent += EquipFromInventory;
-        equipmentPanel.OnItemRightClickEvent += UnequipFromEquipmentPanel;
+        inventory.OnRightClickEvent += Equip;
+        equipmentPanel.OnRightClickEvent += Unequip;
+
+        inventory.OnBeginDragHandlerEvent += BeginDrag;
+        equipmentPanel.OnBeginDragHandlerEvent += BeginDrag;
+
+        inventory.OnEndDragHandlerEvent += EndDrag;
+        equipmentPanel.OnEndDragHandlerEvent += EndDrag;
+
+        inventory.OnDragEvent += Drag;
+        equipmentPanel.OnDragEvent += Drag;
+
+        inventory.OnDropEvent += Drop;
+        equipmentPanel.OnDropEvent += Drop;
     }
-    
-    private void EquipFromInventory(Item item)
+    private void Equip(ItemSlot itemSlot)
     {
-        if(item is EquipableItem)
+        EquipableItem equipableItem = itemSlot.item as EquipableItem;
+        if (equipableItem != null)
         {
-            Equip((EquipableItem)(item));
+            Equip(equipableItem);
         }
     }
-
-    private void UnequipFromEquipmentPanel(Item item)
+    private void Unequip(ItemSlot itemSlot)
     {
-        if (item is EquipableItem)
+        EquipableItem equipableItem = itemSlot.item as EquipableItem;
+        if (equipableItem != null)
         {
-            Unequip((EquipableItem)(item));
+            Unequip(equipableItem);
         }
     }
-
     public void Equip(EquipableItem item)
     {
         if (inventory.RemoveItem(item))
         {
             EquipableItem previousItem;
-            if (equipmentPanel.AddItem(item,out previousItem))
+            if (equipmentPanel.AddItem(item, out previousItem))
             {
                 if (previousItem != null)
                 {
@@ -47,13 +62,43 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-
-
     public void Unequip(EquipableItem item)
     {
-        if(!inventory.IsFull() && equipmentPanel.RemoveItem(item))
+        if (!inventory.IsFull() && equipmentPanel.RemoveItem(item))
         {
             inventory.AddItem(item);
         }
     }
+    private void BeginDrag(ItemSlot itemSlot)
+    {
+        if (itemSlot.item != null)
+        {
+            draggedSlot = itemSlot;
+            draggableItem.sprite = itemSlot.item.itemIcon;
+            draggableItem.transform.position = Input.mousePosition;
+            draggableItem.enabled = true;
+        }
+    }
+    private void EndDrag(ItemSlot itemSLot)
+    {
+        draggedSlot = null;
+        draggableItem.enabled = false;
+    }
+    private void Drag(ItemSlot itemSLot)
+    {
+        if (draggableItem.enabled)
+        {
+            draggableItem.transform.position = Input.mousePosition;
+        }
+    }
+    private void Drop(ItemSlot dropItemSlot)
+    {
+        if (dropItemSlot.CanReceiveItem(draggedSlot.item) && draggedSlot.CanReceiveItem(dropItemSlot.item))
+        {
+            Item draggedItem = draggedSlot.item;
+            draggedSlot.item = dropItemSlot.item;
+            dropItemSlot.item = draggedItem;
+        }
+    }
+
 }

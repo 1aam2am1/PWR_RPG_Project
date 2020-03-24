@@ -9,13 +9,21 @@ public class EquipmentPanel : MonoBehaviour
     [SerializeField] EquipmentSlot[] equipmentSlots;
 
 
-    public event Action<Item> OnItemRightClickEvent;
+    public event Action<ItemSlot> OnRightClickEvent;
+    public event Action<ItemSlot> OnBeginDragHandlerEvent;
+    public event Action<ItemSlot> OnEndDragHandlerEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
 
     private void Awake()
     {
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
-            equipmentSlots[i].OnRightClickEvent += OnItemRightClickEvent;
+            equipmentSlots[i].OnRightClickEvent += OnRightClickEvent;
+            equipmentSlots[i].OnBeginDragHandlerEvent += OnBeginDragHandlerEvent;
+            equipmentSlots[i].OnEndDragHandlerEvent += OnEndDragHandlerEvent;
+            equipmentSlots[i].OnDragEvent += OnDragEvent;
+            equipmentSlots[i].OnDropEvent += OnDropEvent;
         }
     }
 
