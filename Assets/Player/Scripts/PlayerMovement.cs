@@ -5,95 +5,95 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private CharacterController2D controller;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-    private HealthSystem healthSystem;
+    private CharacterController2D m_controller;
+    private Animator m_animator;
+    private SpriteRenderer m_spriteRenderer;
+    private HealthSystem m_healthSystem;
 
     public float runSpeed = 40f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
-    bool crouch = false;
+    float m_horizontalMove = 0f;
+    bool m_jump = false;
+    bool m_crouch = false;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        controller = GetComponent<CharacterController2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        healthSystem = GetComponent<HealthSystem>();
+        m_animator = GetComponent<Animator>();
+        m_controller = GetComponent<CharacterController2D>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
+        m_healthSystem = GetComponent<HealthSystem>();
 
-        healthSystem.OnDeathEvent.AddListener(OnDeath);
+        m_healthSystem.OnDeathEvent.AddListener(OnDeath);
     }
 
     private void OnDestroy()
     {
-        healthSystem.OnDeathEvent.RemoveListener(OnDeath);
+        m_healthSystem.OnDeathEvent.RemoveListener(OnDeath);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (healthSystem.Health == 0) { return; }
+        if (m_healthSystem.Health == 0) { return; }
 
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis("Horizontal");
 
-        horizontalMove = move.x * runSpeed;
+        m_horizontalMove = move.x * runSpeed;
 
-        animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
+        m_animator.SetFloat("velocityX", Mathf.Abs(m_horizontalMove));
 
         if (move.x > 0.01f)
         {
-            if (spriteRenderer.flipX == true)
+            if (m_spriteRenderer.flipX == true)
             {
-                spriteRenderer.flipX = false;
+                m_spriteRenderer.flipX = false;
             }
         }
         else if (move.x < -0.01f)
         {
-            if (spriteRenderer.flipX == false)
+            if (m_spriteRenderer.flipX == false)
             {
-                spriteRenderer.flipX = true;
+                m_spriteRenderer.flipX = true;
             }
         }
 
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+            m_jump = true;
+            m_animator.SetBool("IsJumping", true);
         }
 
         if (Input.GetButtonDown("Crouch"))
         {
-            crouch = true;
+            m_crouch = true;
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            crouch = false;
+            m_crouch = false;
         }
     }
 
     public void OnLanding()
     {
-        animator.SetBool("IsJumping", false);
+        m_animator.SetBool("IsJumping", false);
     }
 
     public void OnCrouching(bool isCrouching)
     {
-        animator.SetBool("IsCrouching", isCrouching);
+        m_animator.SetBool("IsCrouching", isCrouching);
     }
 
     public void OnDeath()
     {
-        animator.Play("Player_Die");
+        m_animator.Play("Player_Die");
     }
 
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
+        m_controller.Move(m_horizontalMove * Time.fixedDeltaTime, m_crouch, m_jump);
+        m_jump = false;
     }
 }

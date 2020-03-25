@@ -22,6 +22,11 @@ public class CharacterController2D : MonoBehaviour
     protected ContactFilter2D contactFilter;
 
     private Rigidbody2D m_Rigidbody2D;
+    public Vector2 position
+    {
+        get => m_Rigidbody2D.position;
+        private set => m_Rigidbody2D.position = value;
+    }
 
     [Header("Events")]
     [Space]
@@ -78,11 +83,15 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-
     public void Move(float move, bool crouch, bool jump)
     {
+        Move(new Vector2(move, 0f), crouch, jump);
+    }
+
+    public void Move(Vector2 move, bool crouch, bool jump)
+    {
         // If crouching, check to see if the character can stand up
-        if (!crouch && m_wasCrouching)
+        if (!crouch && m_wasCrouching && m_CrouchDisableCollider != null)
         {
             int count = m_CrouchDisableCollider.Cast(Vector2.up, contactFilter, hitBuffer, k_CeilingMovment + shellRadius);
             // If the character has a ceiling preventing them from standing up, keep them crouching
@@ -133,11 +142,11 @@ public class CharacterController2D : MonoBehaviour
             //(move-velocity)*konst=>force
             if (m_Grounded)
             {
-                m_Rigidbody2D.AddForce(new Vector2(move * m_GroundSpeed, 0f), ForceMode2D.Force);
+                m_Rigidbody2D.AddForce(move * m_GroundSpeed, ForceMode2D.Force);
             }
             else
             {
-                m_Rigidbody2D.AddForce(new Vector2(move, 0f), ForceMode2D.Force);
+                m_Rigidbody2D.AddForce(move, ForceMode2D.Force);
             }
         }
         // If the player should jump...
