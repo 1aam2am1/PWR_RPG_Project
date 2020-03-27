@@ -32,13 +32,13 @@ public class EquipmentPanel : MonoBehaviour
         equipmentSlots = equipmentSlotParent.GetComponentsInChildren<EquipmentSlot>();
     }
 
-    public bool AddItem(EquipableItem item, out EquipableItem previousItem)
+    public bool AddItem(Item item, out Item previousItem)
     {
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
-            if (equipmentSlots[i].equipmentType == item.equipmentType)
+            if (equipmentSlots[i].equipmentType == item.itemType)
             {
-                previousItem = (EquipableItem)equipmentSlots[i].item;
+                previousItem = equipmentSlots[i].item;
                 equipmentSlots[i].item = item;
                 return true;
             }
@@ -48,7 +48,7 @@ public class EquipmentPanel : MonoBehaviour
     }
 
 
-    public bool RemoveItem(EquipableItem item)
+    public bool RemoveItem(Item item)
     {
         for (int i = 0; i < equipmentSlots.Length; i++)
         {

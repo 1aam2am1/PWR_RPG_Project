@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 65299484}
-  equipmentType: 2
+  equipmentType: 5
 --- !u!1 &91170059
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,17 +432,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingItems:
-  - {fileID: 11400000, guid: 233f6e539b610a94c923fc697c344631, type: 2}
-  - {fileID: 11400000, guid: e7354ffc8bf461a478da855b06affe83, type: 2}
-  - {fileID: 11400000, guid: 990676e24defa104e83d1e9a8b9a93d7, type: 2}
-  - {fileID: 11400000, guid: b39df02cf58929346a9cdec12a1c791d, type: 2}
-  - {fileID: 11400000, guid: 40dbcc745529cc14b8a67187e8e0b99d, type: 2}
-  - {fileID: 11400000, guid: 10c2b6bcec323c84ebdc61957c379135, type: 2}
-  - {fileID: 11400000, guid: 32f738843dcb12042b62113c692129e1, type: 2}
-  - {fileID: 11400000, guid: 6787b0aa9fa1f0c42a0aa4fc009b4210, type: 2}
-  - {fileID: 11400000, guid: 2df8a162e350c7340add337e2bc204ee, type: 2}
-  - {fileID: 11400000, guid: 2df8a162e350c7340add337e2bc204ee, type: 2}
-  - {fileID: 11400000, guid: 21856ac63d4576147ada745bdcc10182, type: 2}
+  - {fileID: 11400000, guid: 58616ccd32851804ba53274c23bb795a, type: 2}
+  - {fileID: 11400000, guid: 136906eaa78c2394b896d1abff59cf12, type: 2}
+  - {fileID: 11400000, guid: 8067bed578db94040859a73c10992c41, type: 2}
+  - {fileID: 11400000, guid: 8ca413c4274209c49a12e6116387e40d, type: 2}
+  - {fileID: 11400000, guid: 2665777a1b0fc1f4e8edf0cc6132a8a1, type: 2}
+  - {fileID: 11400000, guid: d9ddd61315bdbb04ca90ddc56bf37e09, type: 2}
+  - {fileID: 11400000, guid: d9ddd61315bdbb04ca90ddc56bf37e09, type: 2}
+  - {fileID: 11400000, guid: 74347f39b5d1e324ca93100d4bf08901, type: 2}
+  - {fileID: 11400000, guid: 116ccd3e1c94eab46a4c4af13031cf76, type: 2}
+  - {fileID: 11400000, guid: 71d6d319f28cbf7418499baf7e5d6020, type: 2}
+  - {fileID: 11400000, guid: d7702f2af2ed81a4bb313cc18d8399e8, type: 2}
   itemsParent: {fileID: 91170060}
   itemSlots:
   - {fileID: 1087900897}
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 617505776}
-  equipmentType: 0
+  equipmentType: 3
 --- !u!1 &635604563
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26d9bafcbbcad7c4a8acb0a04f642f06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd6359c0f280cb747917f5be322abc6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68c421cb19822c74f8c4c2cc4d4b75a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2468da318d240d4cb1713cc2edafbe5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 329564bbbfcf30349a2990f7ec21eaf8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd091a63d36ca946b048bb1a8b98b83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9b154bfffb1a28846bafbf175ab8b238, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26d9bafcbbcad7c4a8acb0a04f642f06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cd6359c0f280cb747917f5be322abc6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a498526519a078e4f89f8c14856535d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1223282222}
-  equipmentType: 4
+  equipmentType: 7
 --- !u!1 &1378595725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26d9bafcbbcad7c4a8acb0a04f642f06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68c421cb19822c74f8c4c2cc4d4b75a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1399290303}
-  equipmentType: 3
+  equipmentType: 6
 --- !u!1 &1561325330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2468da318d240d4cb1713cc2edafbe5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 329564bbbfcf30349a2990f7ec21eaf8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7fd091a63d36ca946b048bb1a8b98b83, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fa69bf2281398f4bb4c821b7db899d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2253,7 +2253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1928080701}
-  equipmentType: 1
+  equipmentType: 4
 --- !u!1 &2066435237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a498526519a078e4f89f8c14856535d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26d9bafcbbcad7c4a8acb0a04f642f06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -18,9 +18,9 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
- 
+
             itemSlots[i].OnRightClickEvent += OnRightClickEvent;
             itemSlots[i].OnBeginDragHandlerEvent += OnBeginDragHandlerEvent;
             itemSlots[i].OnEndDragHandlerEvent += OnEndDragHandlerEvent;

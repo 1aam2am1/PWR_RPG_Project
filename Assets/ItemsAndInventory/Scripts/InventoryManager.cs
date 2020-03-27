@@ -30,7 +30,7 @@ public class InventoryManager : MonoBehaviour
     }
     private void Equip(ItemSlot itemSlot)
     {
-        EquipableItem equipableItem = itemSlot.item as EquipableItem;
+        Item equipableItem = itemSlot.item;
         if (equipableItem != null)
         {
             Equip(equipableItem);
@@ -38,17 +38,17 @@ public class InventoryManager : MonoBehaviour
     }
     private void Unequip(ItemSlot itemSlot)
     {
-        EquipableItem equipableItem = itemSlot.item as EquipableItem;
+        Item equipableItem = itemSlot.item;
         if (equipableItem != null)
         {
             Unequip(equipableItem);
         }
     }
-    public void Equip(EquipableItem item)
+    public void Equip(Item item)
     {
         if (inventory.RemoveItem(item))
         {
-            EquipableItem previousItem;
+            Item previousItem;
             if (equipmentPanel.AddItem(item, out previousItem))
             {
                 if (previousItem != null)
@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    public void Unequip(EquipableItem item)
+    public void Unequip(Item item)
     {
         if (!inventory.IsFull() && equipmentPanel.RemoveItem(item))
         {

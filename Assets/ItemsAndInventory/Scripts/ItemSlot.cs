@@ -22,8 +22,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
 
     private Item _item;
-    public Item item 
-    { 
+    public Item item
+    {
         get { return _item; }
         set
         {
@@ -86,7 +86,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (OnDropEvent!= null)
+        if (OnDropEvent != null)
             OnDropEvent(this);
     }
 }

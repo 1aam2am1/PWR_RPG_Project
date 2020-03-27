@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquipmentSlot : ItemSlot
 {
-    public EquipmentType equipmentType;
+    public ItemType equipmentType;
 
     protected override void OnValidate()
     {
@@ -17,7 +17,6 @@ public class EquipmentSlot : ItemSlot
         if (item == null)
             return true;
 
-        EquipableItem equipableItem = item as EquipableItem;
-        return equipableItem != null && equipableItem.equipmentType == equipmentType;
+        return item.itemType == equipmentType;
     }
 }
