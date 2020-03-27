@@ -35,13 +35,14 @@ public class EagleMovement : MonoBehaviour
 
     public Transform target;
     public float speed = 200f;
-    public float nextWaypointDistance = 10f;
+    public float nextWaypointDistance = .7f;
 
     private Path path;
     int currentWayPoint = 0;
     Seeker seeker;
 
     Vector2 m_Move;
+    float m_TimeSinceLastTargetView;
 
     // Start is called before the first frame update
     void Awake()
@@ -73,9 +74,13 @@ public class EagleMovement : MonoBehaviour
             currentWayPoint = 0;
         }
 
-        //path can be completed with some timeback
-        /// TODO: Check for nearest visible point and start from it
+        float distance_sqr = float.MaxValue;
+        for (int i = 0; i < path.vectorPath.Count; i++)
+        {
+            Vector3 dir = (Vector3)m_controller.position - path.vectorPath[i];
 
+            if (dir.sqrMagnitude <= distance_sqr) { distance_sqr = dir.sqrMagnitude; currentWayPoint = i; }
+        }
     }
     private void OnDestroy()
     {
@@ -91,15 +96,17 @@ public class EagleMovement : MonoBehaviour
 
         if (currentWayPoint >= path.vectorPath.Count) { return; }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - m_controller.position).normalized;
-        m_Move = direction * speed;
-
         Vector3 dir = (Vector3)m_controller.position - path.vectorPath[currentWayPoint];
 
         if (dir.sqrMagnitude < nextWaypointDistance * nextWaypointDistance)
         {
             currentWayPoint++;
         }
+
+        if (currentWayPoint >= path.vectorPath.Count) { return; }
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - m_controller.position).normalized;
+        m_Move = direction * speed;
 
         if (m_Move.x > 0.01f)
         {
@@ -120,6 +127,9 @@ public class EagleMovement : MonoBehaviour
     void FixedUpdate()
     {
         m_controller.Move(m_Move * Time.fixedDeltaTime, false, false);
+
+        if (m_TimeSinceLastTargetView > 0.0f)
+            m_TimeSinceLastTargetView -= Time.fixedDeltaTime;
     }
 
 #if UNITY_EDITOR
@@ -139,6 +149,15 @@ public class EagleMovement : MonoBehaviour
         //Draw attack range
         Handles.color = new Color(1.0f, 0, 0, 0.1f);
         Handles.DrawSolidDisc(transform.position, Vector3.back, Range);
+
+
+        if (path != null && currentWayPoint < path.vectorPath.Count)
+        {
+            Vector3 nextPosition = path.vectorPath[currentWayPoint];
+
+            Handles.color = new Color(.5f, .5f, 0, 0.1f);
+            Handles.DrawSolidDisc(nextPosition, Vector3.back, .5f);
+        }
     }
 #endif
 }

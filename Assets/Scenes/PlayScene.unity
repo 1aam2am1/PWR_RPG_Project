@@ -3194,11 +3194,11 @@ MonoBehaviour:
   viewDirection: 315
   viewFov: 180
   viewDistance: 6
-  timeBeforeTargetLost: 1
+  timeBeforeTargetLost: 0.7
   Range: 3.5
   target: {fileID: 667758573}
   speed: 200
-  nextWaypointDistance: 3
+  nextWaypointDistance: 0.7
 --- !u!114 &1658286142
 MonoBehaviour:
   m_ObjectHideFlags: 0
