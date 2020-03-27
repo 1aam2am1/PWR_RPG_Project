@@ -3194,7 +3194,6 @@ MonoBehaviour:
   viewDirection: 315
   viewFov: 180
   viewDistance: 6
-  timeBeforeTargetLost: 0.7
   Range: 3.5
   target: {fileID: 667758573}
   speed: 200

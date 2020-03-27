@@ -23,7 +23,7 @@ public class EagleMovement : MonoBehaviour
     public float viewFov;
     public float viewDistance;
     [Tooltip("Time in seconds without the target in the view cone before the target is considered lost from sight")]
-    public float timeBeforeTargetLost = 3.0f;
+    public readonly float timeBeforeTargetLost = 3.0f;
 
     [Header("Attack Data")]
     [EnemyRangeCheck]
@@ -62,6 +62,7 @@ public class EagleMovement : MonoBehaviour
     void UpdatePath()
     {
         if (!seeker.IsDone()) { return; }
+        if (m_TimeSinceLastTargetView <= .1f) { return; }
 
         seeker.StartPath(m_controller.position, target.position, OnPathComplete);
     }
@@ -82,6 +83,31 @@ public class EagleMovement : MonoBehaviour
             if (dir.sqrMagnitude <= distance_sqr) { distance_sqr = dir.sqrMagnitude; currentWayPoint = i; }
         }
     }
+    public void ScanForPlayer()
+    {
+
+        Vector3 dir = target.position - transform.position;
+
+        if (dir.sqrMagnitude > viewDistance * viewDistance)
+        {
+            return;
+        }
+
+
+        Vector2 m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
+
+        Vector3 testForward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * m_SpriteForward;
+        if (m_spriteRenderer.flipX) testForward.x = -testForward.x;
+
+        float angle = Vector3.Angle(testForward, dir);
+
+        if (angle > viewFov * 0.5f)
+        {
+            return;
+        }
+
+        m_TimeSinceLastTargetView = timeBeforeTargetLost;
+    }
     private void OnDestroy()
     {
         m_healthSystem.OnDeathEvent.RemoveListener(OnDeath);
@@ -91,6 +117,8 @@ public class EagleMovement : MonoBehaviour
     void Update()
     {
         m_Move = Vector2.zero;
+
+        ScanForPlayer();
 
         if (path == null) { return; }
 
@@ -115,6 +143,7 @@ public class EagleMovement : MonoBehaviour
         else if (m_Move.x < -0.01f)
         {
             m_spriteRenderer.flipX = !spriteFaceLeft;
+
         }
 
     }
@@ -135,6 +164,16 @@ public class EagleMovement : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
+        {
+            Vector2 m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
+            //if (m_spriteRenderer.flipX) m_SpriteForward = -m_SpriteForward;
+
+            Vector3 testForward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * m_SpriteForward;
+            if (GetComponent<SpriteRenderer>().flipX) testForward.x = -testForward.x;
+
+            Gizmos.DrawLine(transform.position, transform.position + testForward.normalized * 5f);
+        }
+
         //draw the cone of view
         Vector3 forward = spriteFaceLeft ? Vector2.left : Vector2.right;
         forward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * forward;
