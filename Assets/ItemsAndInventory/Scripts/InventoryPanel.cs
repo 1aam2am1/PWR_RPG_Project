@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System;
 
-public class Inventory : MonoBehaviour
+public class InventoryPanel : MonoBehaviour
 {
     [SerializeField] List<Item> startingItems;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
 
-    public event Action<ItemSlot> OnRightClickEvent;
+    public event Action<ItemSlot> OnDoubleLeftClickEvent;
+    public event Action<ItemSlot> OnDoubleRightClickEvent;
     public event Action<ItemSlot> OnBeginDragHandlerEvent;
     public event Action<ItemSlot> OnEndDragHandlerEvent;
     public event Action<ItemSlot> OnDragEvent;
@@ -21,7 +22,8 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < itemSlots.Length; i++)
         {
 
-            itemSlots[i].OnRightClickEvent += OnRightClickEvent;
+            itemSlots[i].OnDoubleLeftClickEvent += OnDoubleLeftClickEvent;
+            itemSlots[i].OnDoubleRightClickEvent += OnDoubleRightClickEvent;
             itemSlots[i].OnBeginDragHandlerEvent += OnBeginDragHandlerEvent;
             itemSlots[i].OnEndDragHandlerEvent += OnEndDragHandlerEvent;
             itemSlots[i].OnDragEvent += OnDragEvent;

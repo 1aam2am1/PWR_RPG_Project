@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] Inventory inventory;
+    [SerializeField] InventoryPanel inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
     [SerializeField] Image draggableItem;
 
@@ -13,8 +13,11 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        inventory.OnRightClickEvent += Equip;
-        equipmentPanel.OnRightClickEvent += Unequip;
+        inventory.OnDoubleLeftClickEvent += Use;
+        //equipmentPanel.OnDoubleLeftClickEvent += Unequip;
+
+        inventory.OnDoubleRightClickEvent += ThrowOut;
+        equipmentPanel.OnDoubleRightClickEvent += Unequip;
 
         inventory.OnBeginDragHandlerEvent += BeginDrag;
         equipmentPanel.OnBeginDragHandlerEvent += BeginDrag;
@@ -28,45 +31,81 @@ public class InventoryManager : MonoBehaviour
         inventory.OnDropEvent += Drop;
         equipmentPanel.OnDropEvent += Drop;
     }
+
+    private void Use(ItemSlot itemSlot)
+    {
+        
+        if (itemSlot.item != null)
+        {
+           // Item item = itemSlot.item;
+            if (itemSlot.item.itemType == ItemType.Helmet ||
+                itemSlot.item.itemType == ItemType.Chest ||
+                itemSlot.item.itemType == ItemType.Weapon ||
+                itemSlot.item.itemType == ItemType.Shield ||
+                itemSlot.item.itemType == ItemType.Boots)
+            {
+                Debug.Log("Start using as eqiupment");
+                Equip(itemSlot);
+                Debug.Log("Item  used as equipment");
+            }
+
+            else if (itemSlot.item.itemType == ItemType.Food)
+            {
+                Debug.Log("Start using as consumable");
+                Consume(itemSlot);
+                Debug.Log("Item  used as consumable");
+            }
+        }
+    }
+    private void ThrowOut(ItemSlot itemSlot)
+    {
+        if (itemSlot.item != null)
+        {
+            //function
+            inventory.RemoveItem(itemSlot.item);
+            Debug.Log("Item thrown out");
+        }
+    }
+    private void Consume(ItemSlot itemSlot)
+    {
+
+        //function updating player stats
+        inventory.RemoveItem(itemSlot.item);
+        Debug.Log("Item consumed");
+    }
     private void Equip(ItemSlot itemSlot)
     {
-        Item equipableItem = itemSlot.item;
-        if (equipableItem != null)
+        Item item = itemSlot.item;
+        if (item!= null)
         {
-            Equip(equipableItem);
+            if (inventory.RemoveItem(item))
+            {
+                Item previousItem;
+                if (equipmentPanel.AddItem(item, out previousItem))
+                {
+                    if (previousItem != null)
+                    {
+                        inventory.AddItem(previousItem);
+                    }
+                }
+                else
+                {
+                    inventory.AddItem(item);
+                }
+            }
+            Debug.Log("Item equipped");
         }
     }
     private void Unequip(ItemSlot itemSlot)
     {
-        Item equipableItem = itemSlot.item;
-        if (equipableItem != null)
+        Item item = itemSlot.item;
+        if (item != null)
         {
-            Unequip(equipableItem);
-        }
-    }
-    public void Equip(Item item)
-    {
-        if (inventory.RemoveItem(item))
-        {
-            Item previousItem;
-            if (equipmentPanel.AddItem(item, out previousItem))
-            {
-                if (previousItem != null)
-                {
-                    inventory.AddItem(previousItem);
-                }
-            }
-            else
+            if (!inventory.IsFull() && equipmentPanel.RemoveItem(item))
             {
                 inventory.AddItem(item);
             }
-        }
-    }
-    public void Unequip(Item item)
-    {
-        if (!inventory.IsFull() && equipmentPanel.RemoveItem(item))
-        {
-            inventory.AddItem(item);
+            Debug.Log("Item unequipped");
         }
     }
     private void BeginDrag(ItemSlot itemSlot)
@@ -93,11 +132,16 @@ public class InventoryManager : MonoBehaviour
     }
     private void Drop(ItemSlot dropItemSlot)
     {
-        if (dropItemSlot.CanReceiveItem(draggedSlot.item) && draggedSlot.CanReceiveItem(dropItemSlot.item))
+        if (draggedSlot != null)
         {
-            Item draggedItem = draggedSlot.item;
-            draggedSlot.item = dropItemSlot.item;
-            dropItemSlot.item = draggedItem;
+            
+            if (dropItemSlot.CanReceiveItem(draggedSlot.item) &&
+               draggedSlot.CanReceiveItem(dropItemSlot.item))
+            {
+                Item draggedItem = draggedSlot.item;
+                draggedSlot.item = dropItemSlot.item;
+                dropItemSlot.item = draggedItem;
+            }
         }
     }
 

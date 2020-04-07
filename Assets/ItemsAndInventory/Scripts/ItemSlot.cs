@@ -9,16 +9,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 {
     [SerializeField] Image image;
 
-    public event Action<ItemSlot> OnPointerEnterEvent;
-    public event Action<ItemSlot> OnPointerExitEvent;
-    public event Action<ItemSlot> OnRightClickEvent;
+    //public event Action<ItemSlot> OnPointerEnterEvent;
+    //public event Action<ItemSlot> OnPointerExitEvent;
+    public event Action<ItemSlot> OnDoubleLeftClickEvent;
+    public event Action<ItemSlot> OnDoubleRightClickEvent;
     public event Action<ItemSlot> OnBeginDragHandlerEvent;
     public event Action<ItemSlot> OnEndDragHandlerEvent;
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
-
-    private Color normalColor = Color.white;
-    private Color disabledColor = new Color(0, 0, 0, 0);
 
 
     private Item _item;
@@ -30,24 +28,26 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _item = value;
             if (item == null)
             {
-                image.color = disabledColor;
+                image.color = Color.clear;
             }
             else
             {
                 image.sprite = _item.itemIcon;
-                image.color = normalColor;
+                image.color = Color.white;
             }
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData != null && eventData.button == PointerEventData.InputButton.Right)
+        if (eventData != null && eventData.button == PointerEventData.InputButton.Right && eventData.clickCount == 2)
         {
-            if (OnRightClickEvent != null)
-            {
-                OnRightClickEvent(this);
-            }
+            OnDoubleRightClickEvent?.Invoke(this);
+        }
+
+        if (eventData != null && eventData.button == PointerEventData.InputButton.Left && eventData.clickCount == 2)
+        {
+            OnDoubleLeftClickEvent?.Invoke(this);
         }
     }
 
@@ -68,20 +68,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (OnBeginDragHandlerEvent != null)
             OnBeginDragHandlerEvent(this);
-        //originalPosition = image.transform.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (OnEndDragHandlerEvent != null)
             OnEndDragHandlerEvent(this);
-        //image.transform.position = originalPosition;
     }
     public void OnDrag(PointerEventData eventData)
     {
         if (OnDragEvent != null)
             OnDragEvent(this);
-        //image.transform.position = Input.mousePosition;
     }
 
     public void OnDrop(PointerEventData eventData)

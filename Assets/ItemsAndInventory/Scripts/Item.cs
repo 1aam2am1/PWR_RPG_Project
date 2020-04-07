@@ -19,6 +19,16 @@ public class StatisticsList
     public Dictionary<string, float> dictionary;
 }
 
+public class FoodStatistics : StatisticsList
+{
+    public FoodStatistics()
+    {
+        dictionary = new Dictionary<string, float>()
+        {
+            {"hpBonus", 1f}
+        };
+    }
+}
 public class QuestStatistics : StatisticsList { }
 public class GoldStatistics : StatisticsList { }
 public class WeaponStatistics : StatisticsList
