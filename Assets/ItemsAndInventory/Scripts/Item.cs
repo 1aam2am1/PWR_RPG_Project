@@ -64,14 +64,22 @@ public class Item : ScriptableObject
 {
     public ItemType itemType;
     public string itemName;
+    [Space]
     public string itemDescription;
     public Sprite itemIcon;
 
     public Dictionary<string, float> itemStatistics;
 
+
     public Item()
     {
         itemType = ItemType.Food;
+        itemStatistics = new Dictionary<string, float>();
+    }
+
+    public Item(ItemType type)
+    {
+        itemType = type;
         itemStatistics = new Dictionary<string, float>();
     }
 }

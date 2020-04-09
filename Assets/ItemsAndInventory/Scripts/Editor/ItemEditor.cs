@@ -40,7 +40,7 @@ public class ItemMyEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(target, "Changed Description");
-            m_item.itemName = newDescription;
+            m_item.itemDescription = newDescription;
         }
 
         EditorGUI.BeginChangeCheck();
@@ -57,7 +57,7 @@ public class ItemMyEditor : Editor
         EditorGUILayout.Separator();
         EditorGUILayout.Separator();
 
-        EditorGUIUtility.labelWidth = 64;
+        EditorGUIUtility.labelWidth = 100;
         List<string> keys = new List<string>(m_item.itemStatistics.Keys);
         foreach (string key in keys)
         {

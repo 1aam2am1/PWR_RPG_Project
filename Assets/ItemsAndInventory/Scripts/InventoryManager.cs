@@ -37,7 +37,6 @@ public class InventoryManager : MonoBehaviour
         
         if (itemSlot.item != null)
         {
-           // Item item = itemSlot.item;
             if (itemSlot.item.itemType == ItemType.Helmet ||
                 itemSlot.item.itemType == ItemType.Chest ||
                 itemSlot.item.itemType == ItemType.Weapon ||
@@ -134,7 +133,6 @@ public class InventoryManager : MonoBehaviour
     {
         if (draggedSlot != null)
         {
-            
             if (dropItemSlot.CanReceiveItem(draggedSlot.item) &&
                draggedSlot.CanReceiveItem(dropItemSlot.item))
             {

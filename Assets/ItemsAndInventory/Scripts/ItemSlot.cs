@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Image image;
+    [SerializeField] Tooltip tooltip;
 
     //public event Action<ItemSlot> OnPointerEnterEvent;
     //public event Action<ItemSlot> OnPointerExitEvent;
@@ -56,6 +57,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         if (image == null)
             image = GetComponent<Image>();
 
+        if (tooltip == null)
+            tooltip = FindObjectOfType<Tooltip>();
+
     }
 
     public virtual bool CanReceiveItem(Item item)
@@ -85,5 +89,18 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (OnDropEvent != null)
             OnDropEvent(this);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltip.ShowTooltip(item);
+        
+        tooltip.transform.position = this.transform.position;
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltip.HideTooltip();
     }
 }
