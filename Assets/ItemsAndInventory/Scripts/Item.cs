@@ -68,6 +68,8 @@ public class Item : ScriptableObject
     public string itemDescription;
     public Sprite itemIcon;
 
+    public Sprite itemSpriteEquipped;
+
     public Dictionary<string, float> itemStatistics;
 
 

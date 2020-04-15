@@ -54,6 +54,17 @@ public class ItemMyEditor : Editor
             m_item.itemIcon = newIcon;
         }
 
+        EditorGUI.BeginChangeCheck();
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PrefixLabel("Equipped sprite");
+        Sprite newEquippedSprite = (Sprite)EditorGUILayout.ObjectField(m_item.itemSpriteEquipped, typeof(Sprite), allowSceneObjects: false);
+        EditorGUILayout.EndHorizontal();
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(target, "Changed Equipped Sprite");
+            m_item.itemSpriteEquipped = newEquippedSprite;
+        }
+
         EditorGUILayout.Separator();
         EditorGUILayout.Separator();
 
