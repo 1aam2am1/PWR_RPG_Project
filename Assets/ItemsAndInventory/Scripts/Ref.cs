@@ -26,6 +26,8 @@ public class Ref<T> where T : ScriptableObject
         }
     }
 
+    public T item { get => GetT; set => GetT = value; }
+
     private Ref<T> m_reference = null;
     public Ref<T> reference
     {
