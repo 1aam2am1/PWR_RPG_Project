@@ -16,7 +16,7 @@ public class EquipmentPanel : MonoBehaviour
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
