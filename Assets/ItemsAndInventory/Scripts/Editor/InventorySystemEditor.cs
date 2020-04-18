@@ -34,13 +34,13 @@ public class InventorySystemEditor : Editor
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel(EquipmentNames[i]);
-            Item newValue = (Item)EditorGUILayout.ObjectField(m_item.equipment[i].item, typeof(Item), allowSceneObjects: false);
+            Item newValue = (Item)EditorGUILayout.ObjectField(m_item.equipment[i].Item, typeof(Item), allowSceneObjects: false);
             EditorGUILayout.EndHorizontal();
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(target, "Changed Equipment asset");
-                m_item.equipment[i].item = newValue;
+                m_item.equipment[i].Item = newValue;
             }
         }
 
@@ -56,13 +56,13 @@ public class InventorySystemEditor : Editor
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Element " + i.ToString());
-            Item newValue = (Item)EditorGUILayout.ObjectField(m_item.inventory[i].item, typeof(Item), allowSceneObjects: false);
+            Item newValue = (Item)EditorGUILayout.ObjectField(m_item.inventory[i].Item, typeof(Item), allowSceneObjects: false);
             EditorGUILayout.EndHorizontal();
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(target, "Changed Item asset");
-                m_item.inventory[i].item = newValue;
+                m_item.inventory[i].Item = newValue;
             }
         }
     }

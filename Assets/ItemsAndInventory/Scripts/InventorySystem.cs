@@ -36,9 +36,9 @@ public class InventorySystem : MonoBehaviour
     {
         for (int i = 0; i < inventory.Length; i++)
         {
-            if (inventory[i].item == null)
+            if (inventory[i].Item == null)
             {
-                inventory[i].item = item;
+                inventory[i].Item = item;
                 return true;
             }
         }
@@ -49,7 +49,7 @@ public class InventorySystem : MonoBehaviour
     {
         for (int i = 0; i < inventory.Length; i++)
         {
-            if (inventory[i].item == null)
+            if (inventory[i].Item == null)
             {
                 return false;
             }

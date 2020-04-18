@@ -17,19 +17,19 @@ public class Ref<T> where T : ScriptableObject
             if (m_GetT != value)
             {
                 m_GetT = value;
-                if (reference != null)
+                if (Reference != null)
                 {
-                    reference.GetT = value;
+                    Reference.GetT = value;
                 }
                 OnValueChange?.Invoke();
             }
         }
     }
 
-    public T item { get => GetT; set => GetT = value; }
+    public T Item { get => GetT; set => GetT = value; }
 
     private Ref<T> m_reference = null;
-    public Ref<T> reference
+    public Ref<T> Reference
     {
         get => m_reference;
         set
@@ -40,13 +40,13 @@ public class Ref<T> where T : ScriptableObject
             m_reference = null;
             if (tym != null)
             {
-                tym.reference = null;
+                tym.Reference = null;
             }
 
             m_reference = value;
             if (m_reference != null)
             {
-                m_reference.reference = this;
+                m_reference.Reference = this;
             }
         }
     }
