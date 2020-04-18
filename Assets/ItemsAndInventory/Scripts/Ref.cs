@@ -28,7 +28,7 @@ public class Ref<T> where T : ScriptableObject
 
     public T Item { get => GetT; set => GetT = value; }
 
-    private Ref<T> m_reference = null;
+    [System.NonSerialized] private Ref<T> m_reference = null;
     public Ref<T> Reference
     {
         get => m_reference;
@@ -47,6 +47,7 @@ public class Ref<T> where T : ScriptableObject
             if (m_reference != null)
             {
                 m_reference.Reference = this;
+                m_reference.Item = Item;
             }
         }
     }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7032640974361556513}
   - component: {fileID: 4559415888485274258}
   - component: {fileID: 7793103911865693473}
-  - component: {fileID: 8611697906871986261}
+  - component: {fileID: 4221851222436312424}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -265,7 +265,7 @@ MonoBehaviour:
   useInventorySystem: 1
   howManyDrop: 1
   movement: 5
---- !u!114 &8611697906871986261
+--- !u!114 &4221851222436312424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,3 +277,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8a3d74ac684fa49922e6c2a68cb82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideEquipment: 0
+  hideInventory: 0
+  startingEquipment:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 136906eaa78c2394b896d1abff59cf12, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  startingInventory:
+  - {fileID: 11400000, guid: 8067bed578db94040859a73c10992c41, type: 2}
+  - {fileID: 11400000, guid: 58616ccd32851804ba53274c23bb795a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

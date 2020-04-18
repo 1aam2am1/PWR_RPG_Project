@@ -34,7 +34,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Use(ItemSlot itemSlot)
     {
-        
+
         if (itemSlot.item != null)
         {
             if (itemSlot.item.itemType == ItemType.Helmet ||
@@ -75,7 +75,7 @@ public class InventoryManager : MonoBehaviour
     private void Equip(ItemSlot itemSlot)
     {
         Item item = itemSlot.item;
-        if (item!= null)
+        if (item != null)
         {
             if (inventory.RemoveItem(item))
             {
@@ -141,6 +141,13 @@ public class InventoryManager : MonoBehaviour
                 dropItemSlot.item = draggedItem;
             }
         }
+    }
+
+    public void Connect(InventorySystem inventorySystem)
+    {
+        inventory.Connect(inventorySystem);
+        equipmentPanel.Connect(inventorySystem);
+
     }
 
 }

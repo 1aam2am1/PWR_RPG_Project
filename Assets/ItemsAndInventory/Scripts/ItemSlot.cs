@@ -20,13 +20,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     public event Action<ItemSlot> OnDropEvent;
 
 
-    private Ref<Item> _item = new Ref<Item>();
+    public Ref<Item> RefItem = new Ref<Item>();
     public Item item
     {
-        get { return _item.GetT; }
+        get { return RefItem.GetT; }
         set
         {
-            _item.GetT = value;
+            RefItem.GetT = value;
             OnValueChange();
         }
     }
@@ -35,6 +35,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (item == null)
         {
+            image.sprite = null;
             image.color = Color.clear;
         }
         else
@@ -46,7 +47,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     private void Awake()
     {
-        _item.OnValueChange += OnValueChange;
+        RefItem.OnValueChange += OnValueChange;
     }
 
     public void OnPointerClick(PointerEventData eventData)

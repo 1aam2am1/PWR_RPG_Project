@@ -6,7 +6,6 @@ using System;
 
 public class InventoryPanel : MonoBehaviour
 {
-    [SerializeField] List<Item> startingItems;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
 
@@ -29,25 +28,28 @@ public class InventoryPanel : MonoBehaviour
             itemSlots[i].OnDragEvent += OnDragEvent;
             itemSlots[i].OnDropEvent += OnDropEvent;
         }
-        SetStartingItems();
     }
 
     private void OnValidate()
     {
         if (itemsParent != null)
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
-
-        SetStartingItems();
     }
 
-    private void SetStartingItems()
+    public void Connect(InventorySystem inventory)
     {
-        int i = 0;
-        for (; i < startingItems.Count && i < itemSlots.Length; i++)
-            itemSlots[i].item = startingItems[i];
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (inventory != null)
+            {
+                itemSlots[i].RefItem.Reference = inventory.inventory[i];
+            }
+            else
+            {
+                itemSlots[i].RefItem.Reference = null;
+            }
 
-        for (; i < itemSlots.Length; i++)
-            itemSlots[i].item = null;
+        }
     }
 
     public bool AddItem(Item item)

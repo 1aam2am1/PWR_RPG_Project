@@ -63,4 +63,20 @@ public class EquipmentPanel : MonoBehaviour
         return false;
     }
 
+    public void Connect(InventorySystem inventory)
+    {
+        for (int i = 0; i < equipmentSlots.Length; i++)
+        {
+            if (inventory != null)
+            {
+                equipmentSlots[i].RefItem.Reference = inventory.equipment[i];
+            }
+            else
+            {
+                equipmentSlots[i].RefItem.Reference = null;
+            }
+
+        }
+    }
+
 }
