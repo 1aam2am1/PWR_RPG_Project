@@ -16,6 +16,12 @@ public class EquipmentPanel : MonoBehaviour
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
 
+    private void Awake()
+    {
+        if (equipmentSlotParent == null)
+            equipmentSlotParent = transform;
+    }
+
     private void Start()
     {
         for (int i = 0; i < equipmentSlots.Length; i++)

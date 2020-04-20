@@ -16,6 +16,12 @@ public class InventoryPanel : MonoBehaviour
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
 
+    private void Awake()
+    {
+        if (itemsParent == null)
+            itemsParent = transform.Find("ItemSlotsGrid").transform;
+    }
+
     private void Start()
     {
         for (int i = 0; i < itemSlots.Length; i++)

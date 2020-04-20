@@ -15,6 +15,21 @@ public class Tooltip : MonoBehaviour
 
     private StringBuilder sb = new StringBuilder();
 
+    private void Awake()
+    {
+        if (itemName == null)
+            itemName = transform.Find("ItemName").GetComponent<Text>();
+
+        if (itemDesc == null)
+            itemDesc = transform.Find("ItemDescription").GetComponent<Text>();
+
+        if (itemType == null)
+            itemType = transform.Find("ItemType").GetComponent<Text>();
+
+        if (itemStats == null)
+            itemStats = transform.Find("ItemStats").GetComponent<Text>();
+    }
+
     public void ShowTooltip(Item item)
     {
         if (item != null)
@@ -45,7 +60,7 @@ public class Tooltip : MonoBehaviour
     {
         if (sb.Length > 0)
             sb.AppendLine();
-        
+
         sb.Append(statName);
         sb.Append(" ");
 

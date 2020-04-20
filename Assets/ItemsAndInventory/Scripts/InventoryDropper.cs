@@ -6,7 +6,7 @@ using System.Linq;
 public class InventoryDropper : MonoBehaviour
 {
     [SerializeField] private Item Item;
-    [SerializeField] private bool useInventorySystem;
+    [SerializeField] private bool useInventorySystem = false;
     [Range(1, 17)]
     [SerializeField] private int howManyDrop = 1;
     [SerializeField] private float movement = 5;

@@ -13,6 +13,15 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        if (inventory == null)
+            inventory = transform.Find("Inventory").GetComponent<InventoryPanel>();
+
+        if (equipmentPanel == null)
+            equipmentPanel = transform.Find("Equipment/EquipmentPanel").GetComponent<EquipmentPanel>();
+
+        if (draggableItem == null)
+            draggableItem = transform.Find("DraggableItem").GetComponent<Image>();
+
         inventory.OnDoubleLeftClickEvent += Use;
         //equipmentPanel.OnDoubleLeftClickEvent += Unequip;
 
