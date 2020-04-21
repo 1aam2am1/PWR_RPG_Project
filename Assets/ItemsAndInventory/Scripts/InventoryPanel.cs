@@ -71,11 +71,11 @@ public class InventoryPanel : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(Item item)
+    public bool RemoveItem(ItemSlot itemSlot)
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].item == item)
+            if (itemSlots[i] == itemSlot)
             {
                 itemSlots[i].item = null;
                 return true;

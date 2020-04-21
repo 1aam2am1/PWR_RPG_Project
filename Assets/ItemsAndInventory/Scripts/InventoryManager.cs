@@ -70,7 +70,7 @@ public class InventoryManager : MonoBehaviour
         if (itemSlot.item != null)
         {
             //function
-            inventory.RemoveItem(itemSlot.item);
+            inventory.RemoveItem(itemSlot);
             Debug.Log("Item thrown out");
         }
     }
@@ -78,7 +78,7 @@ public class InventoryManager : MonoBehaviour
     {
 
         //function updating player stats
-        inventory.RemoveItem(itemSlot.item);
+        inventory.RemoveItem(itemSlot);
         Debug.Log("Item consumed");
     }
     private void Equip(ItemSlot itemSlot)
@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
         Item item = itemSlot.item;
         if (item != null)
         {
-            if (inventory.RemoveItem(item))
+            if (inventory.RemoveItem(itemSlot))
             {
                 Item previousItem;
                 if (equipmentPanel.AddItem(item, out previousItem))
