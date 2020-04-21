@@ -11,4 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapOne.unity
     guid: 9ec943c3e205acb40a93a212ef9260e3
+    path: Assets/Scenes/StartScreen.unity
+    guid: 6a1ba86fc7a40ae44a130cba49fba859
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: ffaf5a678594e034ab0407f49300252d
+  - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: 9dac868a299b7e541ac4b5c6bbc3dc8f
   m_configObjects: {}
