@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     private HealthSystem m_healthSystem;
     private PlayerItemPicker m_playerItemPicker;
+    private WeaponAttachment m_waponAttachment;
 
     public float runSpeed = 40f;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         m_controller = GetComponent<CharacterController2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_healthSystem = GetComponent<HealthSystem>();
+        m_waponAttachment = GetComponentInChildren<WeaponAttachment>();
         m_playerItemPicker = gameObject.AddComponent(typeof(PlayerItemPicker)) as PlayerItemPicker;
 
         m_healthSystem.OnDeathEvent.AddListener(OnDeath);
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
             if (m_spriteRenderer.flipX == true)
             {
                 m_spriteRenderer.flipX = false;
+                m_waponAttachment.flipX = false;
             }
         }
         else if (move.x < -0.01f)
@@ -58,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
             if (m_spriteRenderer.flipX == false)
             {
                 m_spriteRenderer.flipX = true;
+                m_waponAttachment.flipX = true;
             }
         }
 
@@ -91,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_animator.Play("Player_Die");
         m_playerItemPicker.enabled = false;
+        m_waponAttachment.enabled = false;
     }
 
     void FixedUpdate()
