@@ -53,7 +53,7 @@ public class InventoryDropper : MonoBehaviour
 
                 var i = Random.Range(0, eq + inv);
 
-                if (i > eq)
+                if (i >= eq)
                 {
                     i -= eq;
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ModifyHealthAttribute : MonoBehaviour
 {
     public float m_Damage = 1f;
+    public float m_KnockBack = 0f;
 
     private List<GameObject> m_Colliding;
 
@@ -33,6 +34,13 @@ public class ModifyHealthAttribute : MonoBehaviour
             system.TakeDamage(m_Damage);
 
             m_Colliding.Add(collision.gameObject);
+
+            var rigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (rigidbody != null)
+            {
+                var v = (Vector2)(collision.transform.position - transform.position);
+                rigidbody.AddForce(m_KnockBack * v.normalized, ForceMode2D.Impulse);
+            }
         }
     }
 
