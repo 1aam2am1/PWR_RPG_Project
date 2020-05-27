@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_healthSystem.Health == 0) { return; }
+        if (m_healthSystem.Health == 0) { m_horizontalMove = 0; return; }
 
         Vector2 move = Vector2.zero;
 
@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnDeath()
     {
         m_animator.Play("Player_Die");
+        m_playerItemPicker.enabled = false;
     }
 
     void FixedUpdate()
