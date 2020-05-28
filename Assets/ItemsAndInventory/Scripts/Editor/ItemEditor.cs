@@ -17,12 +17,15 @@ public class ItemMyEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        serializedObject.Update();
+
         EditorGUI.BeginChangeCheck();
         ItemType itemType = (ItemType)EditorGUILayout.EnumPopup("Item Type", m_item.itemType);
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(target, "Changed Item type");
             m_item.itemType = itemType;
+            EditorUtility.SetDirty(m_item);
 
             OnTypeChange();
         }
@@ -33,6 +36,7 @@ public class ItemMyEditor : Editor
         {
             Undo.RecordObject(target, "Changed Name");
             m_item.itemName = newName;
+            EditorUtility.SetDirty(m_item);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -41,6 +45,7 @@ public class ItemMyEditor : Editor
         {
             Undo.RecordObject(target, "Changed Description");
             m_item.itemDescription = newDescription;
+            EditorUtility.SetDirty(m_item);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -52,6 +57,7 @@ public class ItemMyEditor : Editor
         {
             Undo.RecordObject(target, "Changed Icon");
             m_item.itemIcon = newIcon;
+            EditorUtility.SetDirty(m_item);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -63,28 +69,32 @@ public class ItemMyEditor : Editor
         {
             Undo.RecordObject(target, "Changed Equipped Sprite");
             m_item.itemSpriteEquipped = newEquippedSprite;
+            EditorUtility.SetDirty(m_item);
         }
 
         EditorGUILayout.Separator();
         EditorGUILayout.Separator();
 
         EditorGUIUtility.labelWidth = 100;
-        List<string> keys = new List<string>(m_item.itemStatistics.Keys);
+        List<string> keys = new List<string>(m_item.itemStatistics._myDictionary.Keys);
         foreach (string key in keys)
         {
             EditorGUI.BeginChangeCheck();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel(key);
-            float newValue = EditorGUILayout.FloatField(m_item.itemStatistics[key]);
+            float newValue = EditorGUILayout.FloatField(m_item.itemStatistics._myDictionary[key]);
             EditorGUILayout.EndHorizontal();
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(target, "Changed value");
-                m_item.itemStatistics[key] = newValue;
+                m_item.itemStatistics._myDictionary[key] = newValue;
+                EditorUtility.SetDirty(m_item);
             }
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
 
     //small hack to search all directories and not only Editor directory
@@ -114,15 +124,15 @@ public class ItemMyEditor : Editor
             if (list is StatisticsList l)
             {
                 var oldStatistics = m_item.itemStatistics;
-                m_item.itemStatistics = new Dictionary<string, float>(l.dictionary);
+                m_item.itemStatistics = new Item.SerializableDictionary(l.dictionary);
 
                 if (oldStatistics != null)
                 {
-                    foreach (var item in oldStatistics)
+                    foreach (var item in oldStatistics._myDictionary)
                     {
-                        if (m_item.itemStatistics.ContainsKey(item.Key))
+                        if (m_item.itemStatistics._myDictionary.ContainsKey(item.Key))
                         {
-                            m_item.itemStatistics[item.Key] = item.Value;
+                            m_item.itemStatistics._myDictionary[item.Key] = item.Value;
                         }
                     }
                 }

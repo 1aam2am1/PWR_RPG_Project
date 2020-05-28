@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -70,18 +71,30 @@ public class Item : ScriptableObject
 
     public Sprite itemSpriteEquipped;
 
-    public Dictionary<string, float> itemStatistics;
+    [Serializable]
+    public class SerializableDictionary : SerializableDictionary<string, float>
+    {
+        public SerializableDictionary()
+        {
+        }
+
+        public SerializableDictionary(IDictionary<string, float> dictionary)
+        {
+            _myDictionary = new Dictionary<string, float>(dictionary);
+        }
+    }
+    public SerializableDictionary itemStatistics;
 
 
     public Item()
     {
         itemType = ItemType.Food;
-        itemStatistics = new Dictionary<string, float>();
+        itemStatistics = new SerializableDictionary();
     }
 
     public Item(ItemType type)
     {
         itemType = type;
-        itemStatistics = new Dictionary<string, float>();
+        itemStatistics = new SerializableDictionary();
     }
 }

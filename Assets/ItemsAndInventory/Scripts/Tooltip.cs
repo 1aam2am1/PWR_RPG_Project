@@ -39,7 +39,7 @@ public class Tooltip : MonoBehaviour
             itemDesc.text = item.itemDescription;
 
             sb.Length = 0;
-            foreach (var stat in item.itemStatistics)
+            foreach (var stat in item.itemStatistics._myDictionary)
             {
                 AddStat(stat.Value, stat.Key);
             }
