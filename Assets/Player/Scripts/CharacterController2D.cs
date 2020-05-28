@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     protected const float shellRadius = 0.01f;
 
     private bool m_Grounded;                                                    // Whether or not the player is grounded.
+    private bool m_Jumped;
 
     protected ContactFilter2D contactFilter;
 
@@ -76,6 +77,7 @@ public class CharacterController2D : MonoBehaviour
             if (hitBuffer[i].distance - shellRadius <= k_GroundedMovment)
             {
                 m_Grounded = true;
+                m_Jumped = false;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();
                 break;
@@ -149,11 +151,21 @@ public class CharacterController2D : MonoBehaviour
                 m_Rigidbody2D.AddForce(move, ForceMode2D.Force);
             }
         }
+        //TODO: Time from jumping error
         // If the player should jump...
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
             //m_Grounded = false;
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Force);
+        }
+        else if (!m_Jumped && jump)
+        {
+            m_Jumped = true;
+            if (m_Rigidbody2D.velocity.y < 0)
+            {
+                m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+            }
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Force);
         }
     }

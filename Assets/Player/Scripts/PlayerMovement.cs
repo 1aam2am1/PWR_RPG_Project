@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private HealthSystem m_healthSystem;
     private PlayerItemPicker m_playerItemPicker;
     private WeaponAttachment m_waponAttachment;
+    private Rigidbody2D m_Rigidbody2D;
 
     public float runSpeed = 40f;
 
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_healthSystem = GetComponent<HealthSystem>();
         m_waponAttachment = GetComponentInChildren<WeaponAttachment>();
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_playerItemPicker = gameObject.AddComponent(typeof(PlayerItemPicker)) as PlayerItemPicker;
 
         m_healthSystem.OnDeathEvent.AddListener(OnDeath);
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         m_horizontalMove = move.x * runSpeed;
 
         m_animator.SetFloat("velocityX", Mathf.Abs(m_horizontalMove));
+        m_animator.SetFloat("velocityY", m_Rigidbody2D.velocity.y);
 
         if (move.x > 0.01f)
         {
@@ -68,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             m_jump = true;
+            m_animator.ForceStateNormalizedTime(0f);
             m_animator.SetBool("IsJumping", true);
         }
 
