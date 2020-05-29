@@ -317,8 +317,11 @@ PrefabInstance:
     - target: {fileID: 1520596040, guid: 28d88639108915a4c839e2fedfb8807e, type: 3}
       propertyPath: _bridge
       value: 
-      objectReference: {fileID: 7086624933554350674, guid: 03c8efff16bf6064c9cdd89a66f70c95,
-        type: 3}
+      objectReference: {fileID: 1195215913}
+    - target: {fileID: 1520596040, guid: 28d88639108915a4c839e2fedfb8807e, type: 3}
+      propertyPath: whatToBuild
+      value: 
+      objectReference: {fileID: 1195215913}
     - target: {fileID: 1076679830351644057, guid: 28d88639108915a4c839e2fedfb8807e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -603,6 +606,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 590692759891123933, guid: 0c330f44a42c27c498e37bc783cf167f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.42725992
+      objectReference: {fileID: 0}
+    - target: {fileID: 590692759891123933, guid: 0c330f44a42c27c498e37bc783cf167f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2749219
+      objectReference: {fileID: 0}
     - target: {fileID: 3969358773004284812, guid: 0c330f44a42c27c498e37bc783cf167f,
         type: 3}
       propertyPath: _targetA
@@ -613,6 +626,21 @@ PrefabInstance:
       propertyPath: _targetB
       value: 
       objectReference: {fileID: 444543463}
+    - target: {fileID: 3969358773004284816, guid: 0c330f44a42c27c498e37bc783cf167f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.41022572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969358773004284816, guid: 0c330f44a42c27c498e37bc783cf167f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3102643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969358773004284816, guid: 0c330f44a42c27c498e37bc783cf167f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c330f44a42c27c498e37bc783cf167f, type: 3}
 --- !u!1001 &213663434
@@ -809,6 +837,11 @@ PrefabInstance:
     - target: {fileID: 7086624933554350674, guid: 03c8efff16bf6064c9cdd89a66f70c95,
         type: 3}
       propertyPath: m_Name
+      value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086624933554350674, guid: 03c8efff16bf6064c9cdd89a66f70c95,
+        type: 3}
+      propertyPath: m_TagString
       value: Bridge
       objectReference: {fileID: 0}
     - target: {fileID: 7086624933554350681, guid: 03c8efff16bf6064c9cdd89a66f70c95,
@@ -2263,6 +2296,12 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1195215913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7086624933554350674, guid: 03c8efff16bf6064c9cdd89a66f70c95,
+    type: 3}
+  m_PrefabInstance: {fileID: 393383937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1273675095
 GameObject:
   m_ObjectHideFlags: 0

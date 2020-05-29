@@ -8,13 +8,20 @@ public class Explosion : MonoBehaviour
     private AudioClip _explosionClip;
     [SerializeField]
     private AudioSource _audioSource;
+    private Renderer _renderer;
 
     // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = _explosionClip;
-        _audioSource.Play();
+        _renderer = GetComponent<Renderer>();
+        if(_renderer == null)
+        {
+            Debug.LogError("renderer is null");
+        }
+        if(_renderer.isVisible)
+            _audioSource.Play();
     }
 
     // Update is called once per frame
@@ -23,6 +30,7 @@ public class Explosion : MonoBehaviour
         
     }
 
+    
     void AfterExplosion()
     {
         Destroy(this.gameObject);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Build : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _bridge;
+    private GameObject whatToBuild;
 
     // Start is called before the first frame update
     private Equipment _playerEquipment;
@@ -13,12 +13,28 @@ public class Build : MonoBehaviour
     private int _logsForBridge = 3;
     [SerializeField]
     private int _stonesForBridge = 1;
+    [SerializeField]
 
     void Start()
     {
-        _bridge.SetActive(false);
+        if(whatToBuild == null)
+        {
+            Debug.LogError("nothing to build");
+        }
+        whatToBuild.SetActive(false);
         GameObject player = GameObject.FindWithTag("Player");
+        if(player == null)
+        {
+            Debug.LogError("Player is null");
+        }
+       
         _playerEquipment = player.GetComponent<Equipment>();
+        if(_playerEquipment == null)
+        {
+            Debug.LogError("_player equipment is null");
+        }
+
+        
     }
 
     // Update is called once per frame
@@ -32,12 +48,13 @@ public class Build : MonoBehaviour
             {
                 if(pos.x < this.transform.position.x + 1)
                 {
-                    if (_playerEquipment.getStones() >= _stonesForBridge && _playerEquipment.getWoodenLogs() >= _logsForBridge)
+                    /*if (check if you have it)
                     {
+                        if(_bridge)
                         _bridge.SetActive(true);
                         _playerEquipment.removeLogs(_logsForBridge);
                         _playerEquipment.removeStones(_stonesForBridge);
-                    }
+                    }*/
                 }
             } 
         }
