@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74deffc97b5f9d446bd5968fd5cd201b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bridge: {fileID: 0}
-  _logsForBridge: 3
+  whatToBuild: {fileID: 0}
+  _logsForBridge: 1
   _stonesForBridge: 1

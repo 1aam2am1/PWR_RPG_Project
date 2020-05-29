@@ -16,18 +16,9 @@ public class Explosion : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = _explosionClip;
         _renderer = GetComponent<Renderer>();
-        if(_renderer == null)
-        {
-            Debug.LogError("renderer is null");
-        }
-        if(_renderer.isVisible)
-            _audioSource.Play();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        _audioSource.Play();
     }
 
     

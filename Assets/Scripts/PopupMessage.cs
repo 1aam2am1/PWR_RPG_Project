@@ -17,7 +17,7 @@ public class PopupMessage : MonoBehaviour
 
         if(collision.tag == "Player")
         {
-            Vector2 posToSpawn = new Vector2(transform.position.x - 0.3f, transform.position.y+1);
+            Vector2 posToSpawn = new Vector2(transform.position.x - 0.3f, transform.position.y + 1);
             _popupMessage = Instantiate(_popupMessagePrefab, posToSpawn, Quaternion.identity);
             _isOn = true;
         }
