@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7086624933554350686}
   - component: {fileID: 7086624933554350685}
   - component: {fileID: 4550730370465381107}
+  - component: {fileID: 1195215914}
   m_Layer: 13
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,3 +129,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1195215914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086624933554350674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657be028de6ffcf4c84ce1c9019e8c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _appearParticle: {fileID: 5464262109882539415, guid: b7a837fd7068dcd49a24e93c00445f74,
+    type: 3}

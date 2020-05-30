@@ -42,36 +42,38 @@ public class Build : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.B))
+        if (whatToBuild.activeSelf == false)
         {
-            
-            var pos = GameObject.Find("Player").transform.position;
-            if(pos.x > this.transform.position.x - 1)
+            if (Input.GetKeyDown(KeyCode.B))
             {
-                if(pos.x < this.transform.position.x + 1)
+
+                var pos = GameObject.Find("Player").transform.position;
+                if (pos.x > this.transform.position.x - 1)
                 {
-                    if (isWoodInInventory())
+                    if (pos.x < this.transform.position.x + 1)
                     {
-                        whatToBuild.SetActive(true);
-                        /*
-                         * TODO - removing from inventory
-                         */
-                    }
-                    else
-                    {
-                        Debug.Log("No");
-                        if (_isErrorOn == false)
+                        if (isWoodInInventory())
                         {
-                            _isErrorOn = true;
-                            _isOn = false;
-                            Destroy(this._popupMessage);
-                            Vector2 posToSpawn = new Vector2(transform.position.x + 0.3f, transform.position.y + 1);
-                            _popupError = Instantiate(_popupErrorPrefab, posToSpawn, Quaternion.identity);
+                            whatToBuild.SetActive(true);
+                            /*
+                             * TODO - removing from inventory
+                             */
+                        }
+                        else
+                        {
+                            Debug.Log("No");
+                            if (_isErrorOn == false)
+                            {
+                                _isErrorOn = true;
+                                _isOn = false;
+                                Destroy(this._popupMessage);
+                                Vector2 posToSpawn = new Vector2(transform.position.x + 0.3f, transform.position.y + 1);
+                                _popupError = Instantiate(_popupErrorPrefab, posToSpawn, Quaternion.identity);
+                            }
                         }
                     }
                 }
-            } 
+            }
         }
     }
 

@@ -7,7 +7,7 @@ public class DestroyBox : MonoBehaviour
     private SpriteRenderer _render;
     [SerializeField]
     private GameObject explosion;
-    
+
     void Start()
     {
         _render = GetComponent<SpriteRenderer>();
@@ -23,8 +23,13 @@ public class DestroyBox : MonoBehaviour
             _render.enabled = false;
             Vector2 posToSpawn = transform.position;
             GameObject newBall = Instantiate(explosion, posToSpawn, Quaternion.identity);
-       
-            Destroy(this.gameObject);
+
+            BlowUp();
         }
+    }
+
+    public void BlowUp()
+    {
+        Destroy(this.gameObject);
     }
 }

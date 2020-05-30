@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1076679830351644057}
   - component: {fileID: 1076679830351644058}
-  - component: {fileID: 1076679830351644059}
   - component: {fileID: 1520596039}
   - component: {fileID: 1520596040}
   m_Layer: 0
@@ -84,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1076679830351644059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076679830351644060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39cddb93f3eff2240b9fb58932d12e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _popupMessagePrefab: {fileID: 7190945376125038866, guid: 488d10890655c9a4ea7cf7797c7e1566,
-    type: 3}
 --- !u!61 &1520596039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,5 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatToBuild: {fileID: 0}
-  _logsForBridge: 1
+  _logsForBridge: 0
   _stonesForBridge: 1
+  _popupMessagePrefab: {fileID: 7190945376125038866, guid: 488d10890655c9a4ea7cf7797c7e1566,
+    type: 3}
+  _popupErrorPrefab: {fileID: 7190945376125038866, guid: 275b52581bcceb643845a8c5d04e4e58,
+    type: 3}
