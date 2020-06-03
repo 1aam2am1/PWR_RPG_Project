@@ -15,10 +15,10 @@ MonoBehaviour:
   itemType: 0
   itemName: 
   itemDescription: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 97177b5e67850434aa9b28c25d478707, type: 3}
   itemSpriteEquipped: {fileID: 0}
   itemStatistics:
     _keys:
     - hpBonus
     _values:
-    - 10
+    - 5

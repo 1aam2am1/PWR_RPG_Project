@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 266b4720989b2424098039cb81fa88ce, type: 3}
-  m_Name: mushroom
+  m_Name: box
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: 
   itemDescription: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 8de1893ee07b4c64eaa9abedaed7115b, type: 3}
   itemSpriteEquipped: {fileID: 0}
   itemStatistics:
     _keys:
     - hpBonus
     _values:
-    - -5
+    - 100

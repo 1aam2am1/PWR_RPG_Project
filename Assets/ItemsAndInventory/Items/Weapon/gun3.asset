@@ -22,10 +22,5 @@ MonoBehaviour:
     - attack
     - deffence
     _values:
-<<<<<<< HEAD:Assets/ItemsAndInventory/Items/gun2.asset
-    - 1
-    - 0
-=======
     - 9
     - 5
->>>>>>> New items added:Assets/ItemsAndInventory/Items/Weapon/gun3.asset
