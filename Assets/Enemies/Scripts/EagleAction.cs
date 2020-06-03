@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EagleAction : AtackAction
+public class EagleAction : AttackAction
 {
     private EagleMovement m_eagle;
     private float timeToDamage = 0;
 
     public float m_Damage = 1f;
 
-    public override void Atack(float time)
+    public override void Attack(float time)
     {
         timeToDamage += time;
         HealthSystem system = m_eagle.target.GetComponent<HealthSystem>();

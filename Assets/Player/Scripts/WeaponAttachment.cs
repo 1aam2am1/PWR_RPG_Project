@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WeaponAttachment : MonoBehaviour
 {
     private SpriteRenderer m_spriteRenderer;
+    private AttackAction attackAction;
 
     public bool flipX
     {
@@ -47,6 +49,7 @@ public class WeaponAttachment : MonoBehaviour
     void Start()
     {
         Item = transform.parent.GetComponent<InventorySystem>().equipment[2];
+        OnValueChange();
     }
 
     // Update is called once per frame
@@ -67,11 +70,31 @@ public class WeaponAttachment : MonoBehaviour
         Debug.DrawRay(transform.position, distance, Color.red);
     }
 
+    private void FixedUpdate()
+    {
+        if (Input.GetMouseButton(0) && attackAction != null)
+        {
+            attackAction.Attack(Time.fixedDeltaTime);
+        }
+        else
+        {
+            attackAction.TimeNotAttack(Time.fixedDeltaTime);
+        }
+    }
+
     void OnValueChange()
     {
         if (Item.Item != null)
         {
             m_spriteRenderer.sprite = Item.Item.itemSpriteEquipped != null ? Item.Item.itemSpriteEquipped : Item.Item.itemIcon;
+            if (Item.Item.itemType == ItemType.Weapon)
+            {
+                if (attackAction != null)
+                {
+                    Destroy(attackAction);
+                }
+                attackAction = gameObject.AddComponent(typeof(GunAttackMode)) as GunAttackMode;
+            }
         }
         else
         {

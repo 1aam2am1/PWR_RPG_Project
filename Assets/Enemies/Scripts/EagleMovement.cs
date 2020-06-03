@@ -11,7 +11,7 @@ public class EagleMovement : MonoBehaviour
     private CharacterController2D m_controller;
     private SpriteRenderer m_spriteRenderer;
     private HealthSystem m_healthSystem;
-    private AtackAction m_actionSystem;
+    private AttackAction m_actionSystem;
 
     [Tooltip("If the sprite face left on the spritesheet, enable this. Otherwise, leave disabled")]
     public bool spriteFaceLeft = false;
@@ -52,7 +52,7 @@ public class EagleMovement : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_healthSystem = GetComponent<HealthSystem>();
         seeker = GetComponent<Seeker>();
-        m_actionSystem = GetComponent<AtackAction>();
+        m_actionSystem = GetComponent<AttackAction>();
 
         m_healthSystem.OnDeathEvent.AddListener(OnDeath);
     }
@@ -168,7 +168,7 @@ public class EagleMovement : MonoBehaviour
 
         if (dir.sqrMagnitude <= Range * Range)
         {
-            m_actionSystem.Atack(Time.fixedDeltaTime);
+            m_actionSystem.Attack(Time.fixedDeltaTime);
         }
     }
 

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class CannonBallMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float _speedX = 8.0f;
-    [SerializeField]
-    private float _speedY = 1.0f;
-    
+    public float _speedX = 8.0f;
+    public float _speedY = 1.0f;
+
     [SerializeField]
     private GameObject explosion;
+    public float _scale = 1;
 
     private float _alpha = 30.0f;
-    
+
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _render;
@@ -24,12 +23,12 @@ public class CannonBallMovement : MonoBehaviour
     void Start()
     {
         _rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
-        if(_rigidbody2D == null)
+        if (_rigidbody2D == null)
         {
             Debug.LogError("Cannon ball rigidbody is null");
         }
         _render = GetComponent<SpriteRenderer>();
-        if(_render == null)
+        if (_render == null)
         {
             Debug.LogError("Cannon ball sprite renderer is null");
         }
@@ -42,6 +41,10 @@ public class CannonBallMovement : MonoBehaviour
         if (_render == null)
         {
             Debug.LogError("Player is null");
+        }
+        if (_scale <= 0.01f)
+        {
+            _scale = 1f;
         }
 
         float a = _alpha * Mathf.Deg2Rad;
@@ -85,6 +88,7 @@ public class CannonBallMovement : MonoBehaviour
         _render.enabled = false;
         Vector2 posToSpawn = transform.position;
         GameObject newBall = Instantiate(explosion, posToSpawn, Quaternion.identity);
+        newBall.transform.localScale = new Vector3(_scale, _scale, _scale);
         Destroy(this.gameObject);
     }
 
@@ -92,7 +96,7 @@ public class CannonBallMovement : MonoBehaviour
 
     void Unfreeze()
     {
-       // _player.constraints = RigidbodyConstraints2D.None;
+        // _player.constraints = RigidbodyConstraints2D.None;
     }
     void DestroyAfterAnim()
     {

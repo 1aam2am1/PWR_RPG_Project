@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeeAction : AtackAction
+public class BeeAction : AttackAction
 {
     [SerializeField]
     private GameObject explosion;
 
-    public override void Atack(float time)
+    public override void Attack(float time)
     {
         Vector2 posToSpawn = transform.position;
         GameObject newBall = Instantiate(explosion, posToSpawn, Quaternion.identity);
