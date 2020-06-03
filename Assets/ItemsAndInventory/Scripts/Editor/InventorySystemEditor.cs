@@ -33,6 +33,7 @@ public class InventorySystemEditor : Editor
         {
             Undo.RecordObject(target, "Hide Equipment asset");
             m_item.hideEquipment = he;
+            EditorUtility.SetDirty(m_item);
         }
 
         int count = m_item.startingEquipment.Length;
@@ -50,6 +51,7 @@ public class InventorySystemEditor : Editor
             {
                 Undo.RecordObject(target, "Changed Equipment asset");
                 m_item.startingEquipment[i] = newValue;
+                EditorUtility.SetDirty(m_item);
             }
         }
 
@@ -61,6 +63,7 @@ public class InventorySystemEditor : Editor
         {
             Undo.RecordObject(target, "Hide Inventory asset");
             m_item.hideInventory = he;
+            EditorUtility.SetDirty(m_item);
         }
 
         EditorGUIUtility.labelWidth = 100;
@@ -78,7 +81,10 @@ public class InventorySystemEditor : Editor
             {
                 Undo.RecordObject(target, "Changed Item asset");
                 m_item.startingInventory[i] = newValue;
+                EditorUtility.SetDirty(m_item);
             }
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
