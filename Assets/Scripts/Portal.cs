@@ -22,7 +22,7 @@ public class Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _player != null)
+        if (Input.GetKeyDown(KeyCode.E) && _player != null && SceneName != "")
         {
             StartCoroutine(LoadYourAsyncScene(_player));
         }
