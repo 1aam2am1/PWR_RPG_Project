@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: da24eee8774ad294f8ca1cd132189e72
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 177272881786912600
+    second: SeekPng.com_sprite-png_4426234_0
+  - first:
+      213: -7762216253429829102
+    second: SeekPng.com_sprite-png_4426234_1
+  - first:
+      213: 1913843184691406796
+    second: SeekPng.com_sprite-png_4426234_2
+  - first:
+      213: -6815455877221479658
+    second: SeekPng.com_sprite-png_4426234_3
+  - first:
+      213: -6437597280465556960
+    second: SeekPng.com_sprite-png_4426234_4
+  - first:
+      213: 4839996005619650003
+    second: SeekPng.com_sprite-png_4426234_5
+  - first:
+      213: -2490440369917444533
+    second: SeekPng.com_sprite-png_4426234_6
+  - first:
+      213: 820171386533519667
+    second: SeekPng.com_sprite-png_4426234_7
+  - first:
+      213: -4514234404100123797
+    second: SeekPng.com_sprite-png_4426234_8
+  - first:
+      213: 3291239684861746895
+    second: SeekPng.com_sprite-png_4426234_9
+  - first:
+      213: 1867614382852062745
+    second: SeekPng.com_sprite-png_4426234_10
+  - first:
+      213: -7482337101882252506
+    second: SeekPng.com_sprite-png_4426234_11
+  - first:
+      213: -8422086627663732956
+    second: SeekPng.com_sprite-png_4426234_12
+  - first:
+      213: 3381342490114052480
+    second: SeekPng.com_sprite-png_4426234_13
+  - first:
+      213: -654905579049302231
+    second: SeekPng.com_sprite-png_4426234_14
+  - first:
+      213: 8880241235084917577
+    second: SeekPng.com_sprite-png_4426234_15
+  - first:
+      213: -4726350609851163639
+    second: SeekPng.com_sprite-png_4426234_16
+  - first:
+      213: 4873541596601156584
+    second: SeekPng.com_sprite-png_4426234_17
+  - first:
+      213: -6597765368642865005
+    second: SeekPng.com_sprite-png_4426234_18
+  - first:
+      213: 1384681137170622150
+    second: SeekPng.com_sprite-png_4426234_19
+  - first:
+      213: -5811548694521371540
+    second: SeekPng.com_sprite-png_4426234_20
+  - first:
+      213: -1156019322076128140
+    second: SeekPng.com_sprite-png_4426234_21
+  - first:
+      213: 3456729370474734281
+    second: SeekPng.com_sprite-png_4426234_22
+  - first:
+      213: 4867448638075962898
+    second: SeekPng.com_sprite-png_4426234_23
+  - first:
+      213: -7667475912880409843
+    second: SeekPng.com_sprite-png_4426234_24
+  - first:
+      213: -3364316342393323894
+    second: SeekPng.com_sprite-png_4426234_25
+  - first:
+      213: 3585901018646086265
+    second: SeekPng.com_sprite-png_4426234_26
+  - first:
+      213: -4304654377534613951
+    second: SeekPng.com_sprite-png_4426234_27
+  - first:
+      213: 8930821397911887487
+    second: SeekPng.com_sprite-png_4426234_28
+  - first:
+      213: 6610179234098156691
+    second: SeekPng.com_sprite-png_4426234_29
+  - first:
+      213: 5783737299576514427
+    second: SeekPng.com_sprite-png_4426234_30
+  - first:
+      213: 3496158677589601985
+    second: SeekPng.com_sprite-png_4426234_31
+  - first:
+      213: 1019520624856573524
+    second: SeekPng.com_sprite-png_4426234_32
+  - first:
+      213: -7929325418199781962
+    second: SeekPng.com_sprite-png_4426234_33
+  - first:
+      213: 3857317791361035291
+    second: SeekPng.com_sprite-png_4426234_34
+  - first:
+      213: 8924334150695107293
+    second: SeekPng.com_sprite-png_4426234_35
+  - first:
+      213: -2683206912924833677
+    second: SeekPng.com_sprite-png_4426234_36
+  - first:
+      213: 6644339965078666658
+    second: SeekPng.com_sprite-png_4426234_37
+  - first:
+      213: 7450456709697698591
+    second: SeekPng.com_sprite-png_4426234_38
+  - first:
+      213: -3745783643856177192
+    second: SeekPng.com_sprite-png_4426234_39
+  - first:
+      213: -5230761228625562113
+    second: SeekPng.com_sprite-png_4426234_40
+  - first:
+      213: -8434073110903394126
+    second: SeekPng.com_sprite-png_4426234_41
+  - first:
+      213: -2865549383335587925
+    second: SeekPng.com_sprite-png_4426234_42
+  - first:
+      213: -788330513291840735
+    second: SeekPng.com_sprite-png_4426234_43
+  - first:
+      213: 3072898373275747434
+    second: SeekPng.com_sprite-png_4426234_44
+  - first:
+      213: -3664755156245716450
+    second: SeekPng.com_sprite-png_4426234_45
+  - first:
+      213: 5316995656556187626
+    second: SeekPng.com_sprite-png_4426234_46
+  - first:
+      213: -398636795640224483
+    second: SeekPng.com_sprite-png_4426234_47
+  - first:
+      213: -6609602281256532379
+    second: SeekPng.com_sprite-png_4426234_48
+  - first:
+      213: -385135879587782475
+    second: SeekPng.com_sprite-png_4426234_49
+  - first:
+      213: -4950572192628671399
+    second: SeekPng.com_sprite-png_4426234_50
+  - first:
+      213: 2616976015478503540
+    second: SeekPng.com_sprite-png_4426234_51
+  - first:
+      213: 2217380051662497733
+    second: SeekPng.com_sprite-png_4426234_52
+  - first:
+      213: 3304856821790851967
+    second: SeekPng.com_sprite-png_4426234_53
+  - first:
+      213: 2902840446176865691
+    second: SeekPng.com_sprite-png_4426234_54
+  - first:
+      213: -7829196302160192134
+    second: SeekPng.com_sprite-png_4426234_55
+  - first:
+      213: -9171038843981388826
+    second: SeekPng.com_sprite-png_4426234_56
+  - first:
+      213: 8121541059378769284
+    second: SeekPng.com_sprite-png_4426234_57
+  - first:
+      213: -2872477990209500740
+    second: SeekPng.com_sprite-png_4426234_58
+  - first:
+      213: 6347259354605568228
+    second: SeekPng.com_sprite-png_4426234_59
+  - first:
+      213: 2868303403432280240
+    second: SeekPng.com_sprite-png_4426234_60
+  - first:
+      213: -7608683563717927749
+    second: SeekPng.com_sprite-png_4426234_61
+  - first:
+      213: 800311211135354443
+    second: SeekPng.com_sprite-png_4426234_62
+  - first:
+      213: 2402786383126982066
+    second: SeekPng.com_sprite-png_4426234_63
+  - first:
+      213: -9864509228327792
+    second: SeekPng.com_sprite-png_4426234_64
+  - first:
+      213: 1009178812228630816
+    second: SeekPng.com_sprite-png_4426234_65
+  - first:
+      213: 2445278377550284722
+    second: SeekPng.com_sprite-png_4426234_66
+  - first:
+      213: -7471339973789251259
+    second: SeekPng.com_sprite-png_4426234_67
+  - first:
+      213: 5078851841494796137
+    second: SeekPng.com_sprite-png_4426234_68
+  - first:
+      213: -5777887192531056085
+    second: SeekPng.com_sprite-png_4426234_69
+  - first:
+      213: 734568941375816169
+    second: SeekPng.com_sprite-png_4426234_70
+  - first:
+      213: -6107987783411534024
+    second: SeekPng.com_sprite-png_4426234_71
+  - first:
+      213: 6680916856753201917
+    second: SeekPng.com_sprite-png_4426234_72
+  - first:
+      213: 2481781527641006647
+    second: SeekPng.com_sprite-png_4426234_73
+  - first:
+      213: 4909713353681787472
+    second: SeekPng.com_sprite-png_4426234_74
+  - first:
+      213: 478215890160266693
+    second: SeekPng.com_sprite-png_4426234_75
+  - first:
+      213: -698716381611492220
+    second: SeekPng.com_sprite-png_4426234_76
+  - first:
+      213: 5675082694773192742
+    second: SeekPng.com_sprite-png_4426234_77
+  - first:
+      213: 7516540424904823720
+    second: SeekPng.com_sprite-png_4426234_78
+  - first:
+      213: -3645468244955359418
+    second: SeekPng.com_sprite-png_4426234_79
+  - first:
+      213: 4316586073488770056
+    second: SeekPng.com_sprite-png_4426234_80
+  - first:
+      213: 308001389242791255
+    second: SeekPng.com_sprite-png_4426234_81
+  - first:
+      213: 2540745834800981477
+    second: SeekPng.com_sprite-png_4426234_82
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 160
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 356
+        width: 146
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ff73b2fbcc57200800000000000000
+      internalID: 177272881786912600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 357
+        width: 146
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2123d888171174490800000000000000
+      internalID: -7762216253429829102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_2
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 358
+        width: 146
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7655b8c365f8a10800000000000000
+      internalID: 1913843184691406796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_3
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 361
+        width: 171
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b8ddf4df2aa61a0800000000000000
+      internalID: -6815455877221479658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_4
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 364
+        width: 182
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a64da916f09a6a0800000000000000
+      internalID: -6437597280465556960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 165
+        width: 146
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ddc44549be1b2340800000000000000
+      internalID: 4839996005619650003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_6
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 160
+        width: 146
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e37c0bdad207dd0800000000000000
+      internalID: -2490440369917444533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_7
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 164
+        width: 146
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3312545d785d16b00800000000000000
+      internalID: 820171386533519667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_8
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 174
+        width: 146
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63d3c61ab73a51c0800000000000000
+      internalID: -4514234404100123797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_9
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 171
+        width: 146
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce5ade3e05dcad20800000000000000
+      internalID: 3291239684861746895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 146
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ebe4bd2691be910800000000000000
+      internalID: 1867614382852062745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_11
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 146
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62325988c06692890800000000000000
+      internalID: -7482337101882252506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_12
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 17
+        width: 168
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f198295dcbe1b80800000000000000
+      internalID: -8422086627663732956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_sprite-png_4426234_13
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 16
+        width: 180
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081de236411fcee20800000000000000
+      internalID: 3381342490114052480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

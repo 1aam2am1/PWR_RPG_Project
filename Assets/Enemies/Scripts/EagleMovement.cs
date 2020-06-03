@@ -11,6 +11,7 @@ public class EagleMovement : MonoBehaviour
     private CharacterController2D m_controller;
     private SpriteRenderer m_spriteRenderer;
     private HealthSystem m_healthSystem;
+    private AtackAction m_actionSystem;
 
     [Tooltip("If the sprite face left on the spritesheet, enable this. Otherwise, leave disabled")]
     public bool spriteFaceLeft = false;
@@ -51,6 +52,7 @@ public class EagleMovement : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_healthSystem = GetComponent<HealthSystem>();
         seeker = GetComponent<Seeker>();
+        m_actionSystem = GetComponent<AtackAction>();
 
         m_healthSystem.OnDeathEvent.AddListener(OnDeath);
     }
@@ -78,7 +80,7 @@ public class EagleMovement : MonoBehaviour
         float distance_sqr = float.MaxValue;
         for (int i = 0; i < path.vectorPath.Count; i++)
         {
-            Vector3 dir = (Vector3)m_controller.position - path.vectorPath[i];
+            Vector2 dir = (Vector3)m_controller.position - path.vectorPath[i];
 
             if (dir.sqrMagnitude <= distance_sqr) { distance_sqr = dir.sqrMagnitude; currentWayPoint = i; }
         }
@@ -86,7 +88,7 @@ public class EagleMovement : MonoBehaviour
     public void ScanForPlayer()
     {
 
-        Vector3 dir = target.position - transform.position;
+        Vector2 dir = target.position - transform.position;
 
         if (dir.sqrMagnitude > viewDistance * viewDistance)
         {
@@ -108,6 +110,7 @@ public class EagleMovement : MonoBehaviour
 
         m_TimeSinceLastTargetView = timeBeforeTargetLost;
     }
+
     private void OnDestroy()
     {
         m_healthSystem.OnDeathEvent.RemoveListener(OnDeath);
@@ -119,12 +122,13 @@ public class EagleMovement : MonoBehaviour
         m_Move = Vector2.zero;
 
         ScanForPlayer();
+        
 
         if (path == null) { return; }
 
         if (currentWayPoint >= path.vectorPath.Count) { return; }
 
-        Vector3 dir = (Vector3)m_controller.position - path.vectorPath[currentWayPoint];
+        Vector2 dir = (Vector3)m_controller.position - path.vectorPath[currentWayPoint];
 
         if (dir.sqrMagnitude < nextWaypointDistance * nextWaypointDistance)
         {
@@ -159,6 +163,13 @@ public class EagleMovement : MonoBehaviour
 
         if (m_TimeSinceLastTargetView > 0.0f)
             m_TimeSinceLastTargetView -= Time.fixedDeltaTime;
+
+        Vector2 dir = target.position - transform.position;
+
+        if (dir.sqrMagnitude <= Range * Range)
+        {
+            m_actionSystem.Atack(Time.fixedDeltaTime);
+        }
     }
 
 #if UNITY_EDITOR
