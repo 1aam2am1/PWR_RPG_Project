@@ -2592,28 +2592,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 393383937}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1225807502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7032640974361556538, guid: 4193e9d023b7fc845904c56dd16fcde4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7032640973769300432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1225807503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225807502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e57234f8b74227447afd7614f73e6c63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deadSnailPrefab: {fileID: 7594486526851004772, guid: fab889d58f4ad7f47ada04b38f5b78af,
-    type: 3}
-  _shellPrefab: {fileID: 5749028194906588130, guid: 20d1c129a9f021047924ea0994e1d021,
-    type: 3}
 --- !u!1 &1273675095
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7963463109725805817}
   - component: {fileID: 82373034}
   - component: {fileID: 82373032}
+  - component: {fileID: -7107716347004708482}
   m_Layer: 14
   m_Name: LeftArrow
   m_TagString: Arrow
@@ -146,3 +147,17 @@ MonoBehaviour:
   leftArrow: {fileID: 21300000, guid: fb03c404272097247be59b6074def908, type: 3}
   rightArrow: {fileID: 21300000, guid: 4888e533831eaba44b2afb7334f55487, type: 3}
   left: 1
+--- !u!114 &-7107716347004708482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530253262049540590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e7d8c4e7ac2d646a208085a713ee51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 2
+  m_KnockBack: 5
