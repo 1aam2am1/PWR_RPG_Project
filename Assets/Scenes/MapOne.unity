@@ -44301,8 +44301,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!61 &10567018
-BoxCollider2D:
+--- !u!60 &10567018
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -44314,7 +44314,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.5, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -44324,9 +44324,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 234, y: 22}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.946419, y: 11.53227}
+      - {x: -108.481766, y: 11.478235}
+      - {x: -108.5466, y: -10.568954}
+      - {x: 125.47354, y: -10.428504}
+      - {x: 125.46508, y: 11.513921}
 --- !u!1 &139323790
 GameObject:
   m_ObjectHideFlags: 0
@@ -45916,7 +45920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 10567018}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &355589885
@@ -45967,7 +45971,7 @@ Transform:
   m_Children:
   - {fileID: 1509418452}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &478364198
 PrefabInstance:
