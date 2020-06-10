@@ -46,6 +46,10 @@ public class HealthSystem : MinMaxValue
 
     public void TakeDamage(float damage)
     {
+        if (Health < 0.1f)
+        {
+            return;
+        }
         Health -= damage;
 
         if (Health < 0.1f)

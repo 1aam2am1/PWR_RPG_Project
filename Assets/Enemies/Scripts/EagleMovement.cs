@@ -24,7 +24,7 @@ public class EagleMovement : MonoBehaviour
     public float viewFov;
     public float viewDistance;
     [Tooltip("Time in seconds without the target in the view cone before the target is considered lost from sight")]
-    public readonly float timeBeforeTargetLost = 3.0f;
+    public float timeBeforeTargetLost = 3.0f;
 
     [Header("Attack Data")]
     [EnemyRangeCheck]
